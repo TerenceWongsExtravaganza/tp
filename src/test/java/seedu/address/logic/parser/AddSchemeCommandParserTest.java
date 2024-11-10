@@ -9,8 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.commands.AddSchemeCommand;
 
-
-public class AddSchemeParserTest {
+public class AddSchemeCommandParserTest {
 
     private AddSchemeCommandParser parser = new AddSchemeCommandParser();
 
@@ -40,6 +39,14 @@ public class AddSchemeParserTest {
     @Test
     public void parse_invalidIndex_throwsParseException() {
         assertParseFailure(parser, "-1 i/1", String.format(MESSAGE_INVALID_COMMAND_FORMAT,
+                AddSchemeCommand.MESSAGE_USAGE));
+    }
+
+    @Test
+    public void parse_invalidSchemeIndex_throwsParseException() {
+        assertParseFailure(parser, "1 i/-1", String.format(MESSAGE_INVALID_COMMAND_FORMAT,
+                AddSchemeCommand.MESSAGE_USAGE));
+        assertParseFailure(parser, "1 i/", String.format(MESSAGE_INVALID_COMMAND_FORMAT,
                 AddSchemeCommand.MESSAGE_USAGE));
     }
 }

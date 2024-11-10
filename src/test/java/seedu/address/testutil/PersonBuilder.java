@@ -172,6 +172,14 @@ public class PersonBuilder {
     }
 
     /**
+     * Sets the {@code scheme} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withSchemes(ArrayList<Scheme> schemes) {
+        this.schemes.addAll(schemes);
+        return this;
+    }
+
+    /**
      * Sets the {@code UpdatedAt} of the {@code Person} that we are building.
      */
     public PersonBuilder withUpdatedAt(LocalDateTime updatedAt) {

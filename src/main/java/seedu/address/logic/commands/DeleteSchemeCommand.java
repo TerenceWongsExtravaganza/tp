@@ -146,4 +146,19 @@ public class DeleteSchemeCommand extends Command {
         }
         return String.format(schemeNames.toString(), beforeEdit.getName());
     }
+
+    @Override
+    public boolean equals(Object other) {
+        if (other == this) {
+            return true;
+        }
+
+        if (!(other instanceof DeleteSchemeCommand)) {
+            return false;
+        }
+
+        DeleteSchemeCommand otherDeleteSchemeCommand = (DeleteSchemeCommand) other;
+        return personIndex.equals(otherDeleteSchemeCommand.personIndex)
+                && schemeIndex.equals(otherDeleteSchemeCommand.schemeIndex);
+    }
 }
